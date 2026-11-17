@@ -1,0 +1,162 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --color-carbon: #000000;
+    --color-paper-white: #ffffff;
+    --color-sky-wash: #dceeff;
+    --color-concrete-gray: #cccccc;
+    --color-soft-mist: #e9e9e9;
+    --color-electric-blue: #4da2ff;
+    --color-mint-pop: #55db9c;
+    --color-lavender: #e9ccff;
+    --color-ember: #fb4903;
+    --color-sunburst: #ffd731;
+    --color-voltage-violet: #5c4ade;
+  }
+
+  body {
+    background-color: var(--color-sky-wash);
+    color: var(--color-carbon);
+    font-family: 'Plus Jakarta Sans', 'Sarabun', -apple-system, BlinkMacSystemFont, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+
+  h1, h2, h3, .font-display {
+    font-family: 'Kanit', 'Prompt', sans-serif;
+    letter-spacing: -0.02em;
+  }
+}
+
+@layer components {
+  /* Slush sticker button classes */
+  .slush-pill {
+    border-radius: 9999px;
+    border: 1px solid #000000;
+    padding: 10px 18px;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 0.02em;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: transform 0.1s ease, background-color 0.15s ease;
+    user-select: none;
+    cursor: pointer;
+  }
+
+  .slush-pill:hover {
+    transform: translateY(-2px);
+  }
+
+  .slush-pill:active {
+    transform: translateY(1px);
+  }
+
+  .slush-btn-primary {
+    background-color: #000000;
+    color: #ffffff;
+    border: 1px solid #000000;
+  }
+  .slush-btn-primary:hover {
+    background-color: #1a1a1a;
+  }
+
+  .slush-btn-ghost {
+    background-color: #ffffff;
+    color: #000000;
+    border: 1px solid #000000;
+  }
+  .slush-btn-ghost:hover {
+    background-color: #f5f5f5;
+  }
+
+  /* Slush Card */
+  .slush-card {
+    background-color: #ffffff;
+    border: 1px solid #000000;
+    border-radius: 28px;
+    box-shadow: none;
+    transition: transform 0.15s ease;
+  }
+
+  .slush-card-hover:hover {
+    transform: translateY(-3px);
+  }
+
+  /* Sticker Tag */
+  .slush-sticker {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    border: 1px solid #000000;
+    border-radius: 9999px;
+    font-weight: 700;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    padding: 4px 12px;
+    user-select: none;
+  }
+}
+
+/* Print CSS */
+@media print {
+  @page {
+    margin: 0;
+  }
+  html,
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    height: auto !important;
+    min-height: 0 !important;
+  }
+  .app-shell {
+    min-height: 0 !important;
+    background: #ffffff !important;
+    display: block !important;
+  }
+  .no-print,
+  header,
+  main,
+  footer,
+  nav,
+  .marquee-banner,
+  .menu-grid,
+  .footer-section,
+  .tool-sidebar {
+    display: none !important;
+  }
+  .print-only {
+    display: block !important;
+  }
+  .print-page-break {
+    page-break-after: always;
+    break-after: page;
+  }
+  .print-page-break:last-child {
+    page-break-after: auto;
+    break-after: auto;
+  }
+}
+
+/* Marquee Animation */
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 25s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
